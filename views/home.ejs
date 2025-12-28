@@ -9,19 +9,14 @@
     <%- include('./partials/nav') %>
     <h1>Home Page</h1>
 
-    
-
-
     <h2><%= RESTAURANT.name %></h2>
     <h4>Address: <%= RESTAURANT.address %></h4>
     <h4>Phone: <%= RESTAURANT.phone %></h4>
 
-    <% if (RESTAURANT.isOpen) { %>
-      <p>Yes we are open!</p>
-<% } %>
-
-<% if (!RESTAURANT.isOpen) { %>
-      <p>Sorry, we are closed.</p>
-<% } %>
+    <% if(RESTAURANT.isOpen) { %>
+    <p>Yes we are open!</p>
+    <% } else { %>
+    <p>Sorry, we are closed.</p>
+    <% } %>
   </body>
 </html>
