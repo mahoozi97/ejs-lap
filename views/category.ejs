@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= menuItems[0].category %></title>
+    <title><%= menuItems[0].category[0].toUpperCase() + menuItems[0].category.slice(1)  %></title>
   </head>
   <body>
     <%- include('./partials/nav') %>
 
-    <h1><%= menuItems[0].category %></h1>
+    <h1><%= menuItems[0].category[0].toUpperCase() + menuItems[0].category.slice(1) %></h1>
     <ul>
       <% menuItems.forEach(function(item) { %>
       <li><%= item.name %></li>

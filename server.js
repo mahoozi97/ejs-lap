@@ -4,7 +4,7 @@ const PORT = process.env.PORT;
 const app = express();
 
 // Set EJS as the view engine
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 const RESTAURANT = {
   name: "The Green Byte Bistro",
@@ -61,17 +61,19 @@ const RESTAURANT = {
 };
 
 app.get("/", (req, res) => {
-  res.render(`home`, {RESTAURANT});
+  res.render(`home`, { RESTAURANT });
 });
 
 app.get("/menu/", (req, res) => {
-  res.render(`menu`, {RESTAURANT});
+  res.render(`menu`, { RESTAURANT });
 });
 
 app.get("/menu/:category", (req, res) => {
-  const menuItems = RESTAURANT.menu.filter((i) => i.category === req.params.category)
+  const menuItems = RESTAURANT.menu.filter(
+    (i) => i.category === req.params.category
+  );
   // console.log(menuItems)
-  res.render(`category`, {menuItems});
+  res.render(`category`, { menuItems });
 });
 
 app.listen(PORT, () => {
