@@ -72,8 +72,9 @@ app.get("/menu/:category", (req, res) => {
   const menuItems = RESTAURANT.menu.filter(
     (i) => i.category === req.params.category
   );
+  const categoryTitle = menuItems[0].category[0].toUpperCase() + menuItems[0].category.slice(1)
+  res.render(`category`, { menuItems, categoryTitle: categoryTitle });
   // console.log(menuItems)
-  res.render(`category`, { menuItems });
 });
 
 app.listen(PORT, () => {
