@@ -1,10 +1,9 @@
 const express = require("express");
 require("dotenv").config();
-const PORT = process.env.PORT;
+const port = process.env.PORT;
 const app = express();
 
-// Set EJS as the view engine
-app.set("view engine", "ejs");
+app.use(express.static('public'))
 
 const RESTAURANT = {
   name: "The Green Byte Bistro",
@@ -61,11 +60,11 @@ const RESTAURANT = {
 };
 
 app.get("/", (req, res) => {
-  res.render(`home`, { RESTAURANT });
+  res.render(`home.ejs`, { RESTAURANT });
 });
 
 app.get("/menu/", (req, res) => {
-  res.render(`menu`, { RESTAURANT });
+  res.render(`menu.ejs`, { RESTAURANT });
 });
 
 app.get("/menu/:category", (req, res) => {
@@ -73,10 +72,10 @@ app.get("/menu/:category", (req, res) => {
     (i) => i.category === req.params.category
   );
   const categoryTitle = menuItems[0].category[0].toUpperCase() + menuItems[0].category.slice(1)
-  res.render(`category`, { menuItems, categoryTitle: categoryTitle });
+  res.render(`category.ejs`, { menuItems, categoryTitle: categoryTitle });
   // console.log(menuItems)
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port : ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port : ${port}`);
 });
