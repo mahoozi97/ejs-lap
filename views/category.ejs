@@ -11,9 +11,10 @@
     <h1><%= categoryTitle %></h1>
     <ul>
       <% menuItems.forEach(function(item) { %>
-      <li><%= item.name %></li>
+      <% let star = item.rating === 5 ? " ⭐️" : ""%>
+      <li><h3><%= item.name + star %></h3></li>
       <p>Price: $<%= item.price %></p>
-      <p>Raiting: <%= item.rating %> ⭐️</p>
+      <p>Raiting: <%= "⭐️".repeat(item.rating) %> </p>
       <p>Details: <%= item.details %></p>
       <% }); %>
     </ul>

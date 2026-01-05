@@ -8,12 +8,12 @@
   <body>
     <%- include('./partials/nav') %>
     <h1>Full Menu</h1>
-
     <ul>
-      <% RESTAURANT.menu.forEach(function(item) { %>
-      <li style="font-weight: bold;"><%= item.name %></li>
+      <% RESTAURANT.menu.forEach(function(item) { %> 
+      <% let star = item.rating === 5 ? " ⭐️" : ""%>
+      <li><h3><%= item.name + star %></h3></li>
       <p>Price: $<%= item.price %></p>
-      <p>Raiting: <%= item.rating %> ⭐️</p>
+      <p>Raiting: <%= "⭐️".repeat(item.rating) %></p>
       <p>Details: <%= item.details %></p>
       <% }); %>
     </ul>
